@@ -6,13 +6,13 @@ class HomeCard extends StatelessWidget {
     required this.icon,
     required this.title,
     required this.iconBackgroundColor,
-    required this.onTap,
+    this.onTap,
   });
 
   final Icon icon;
   final String title;
   final Color iconBackgroundColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

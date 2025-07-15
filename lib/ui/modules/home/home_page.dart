@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/models/home_card_config.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
-import 'package:nasa_app/ui/widgets/home_card.dart';
+import 'package:nasa_app/ui/modules/home/widgets/home_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,6 +14,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final nav = Modular.get<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
@@ -23,6 +27,7 @@ class _HomePageState extends State<HomePage> {
         title: l10n.apod,
         lightColor: AppColors.apodLight,
         darkColor: AppColors.apodDark,
+        onTap: nav.toApod,
       ),
       HomeCardConfig(
         icon: Icons.landscape,
@@ -111,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                     iconBackgroundColor: isDarkMode
                         ? card.darkColor
                         : card.lightColor,
-                    onTap: () {},
+                    onTap: card.onTap,
                   );
                 },
                 childCount: cards.length,

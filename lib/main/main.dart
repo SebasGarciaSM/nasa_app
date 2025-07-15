@@ -9,7 +9,7 @@ import 'package:nasa_app/ui/theme/light_theme.dart';
 Future<void> main() async {
   await dotenv.load(fileName: ".env");
 
-  runApp(ModularApp(module: AppModule(), child: MyApp()));
+  runApp(ModularApp(module: AppModule(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
