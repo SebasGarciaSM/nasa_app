@@ -1,0 +1,13 @@
+{
+  "@@locale": "es",
+  "appTitle": "App de la NASA",
+  "apod": "APOD (Imagen Astronómica del Día)",
+  "marsRoversPhotos": "Fotos del rover de Marte",
+  "neows": "NeoWs (Asteroides)",
+  "epic": "EPIC (Imágenes de la Tierra)",
+  "donki": "DONKI (Actividad Solar)",
+  "techTransfer": "Transferencia Tecnológica",
+  "imageAndVideoLibrary": "Biblioteca de imágenes y videos",
+  "exoplanetArchive": "Archivo de exoplanetas",
+  "earthAssets": "Recursos de la Tierra"
+}
