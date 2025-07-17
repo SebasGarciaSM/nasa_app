@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:fullscreen_image_viewer/fullscreen_image_viewer.dart';
 import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
@@ -18,6 +19,13 @@ class _ApodPageState extends State<ApodPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final textTheme = Theme.of(context).textTheme;
+    final apod = Hero(
+      tag: 'apodHero',
+      child: Image.network(
+        "https://apod.nasa.gov/apod/image/2507/HebesChasma_esa_960.jpg",
+        fit: BoxFit.cover,
+      ),
+    );
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -34,29 +42,20 @@ class _ApodPageState extends State<ApodPage> {
                 elevation: 6.0,
                 clipBehavior: Clip.antiAlias,
                 child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    FullscreenImageViewer.open(
+                      context: context,
+                      child: apod,
+                    );
+                  },
                   child: Stack(
                     alignment: AlignmentDirectional.bottomStart,
                     children: [
-                      Image.network(
-                        "https://apod.nasa.gov/apod/image/2507/HebesChasma_esa_960.jpg",
+                      Container(
                         width: double.infinity,
-                        fit: BoxFit.cover,
                         height: 250.0,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) {
-                            return AnimatedOpacity(
-                              opacity: 1.0,
-                              duration: const Duration(milliseconds: 500),
-                              child: child,
-                            );
-                          }
-                          return Container(
-                            width: double.infinity,
-                            height: 250.0,
-                            color: Colors.grey.shade200,
-                          );
-                        },
+                        color: AppColors.black10,
+                        child: apod,
                       ),
                       Container(
                         width: double.infinity,
