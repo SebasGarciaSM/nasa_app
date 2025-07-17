@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fullscreen_image_viewer/fullscreen_image_viewer.dart';
 import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
+import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
 
 class ApodPage extends StatefulWidget {
@@ -16,27 +17,43 @@ class _ApodPageState extends State<ApodPage> {
   final nav = Modular.get<NavigationService>();
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<ApodViewModel>().loadApod();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final vm = context.watch<ApodViewModel>();
+
     final l10n = AppLocalizations.of(context)!;
     final textTheme = Theme.of(context).textTheme;
-    final apod = Hero(
-      tag: 'apodHero',
-      child: Image.network(
-        "https://apod.nasa.gov/apod/image/2507/HebesChasma_esa_960.jpg",
-        fit: BoxFit.cover,
-      ),
+
+    Widget buildInitial() => const SliverToBoxAdapter(child: SizedBox());
+
+    Widget buildLoading() => const SliverFillRemaining(
+      child: Center(child: CircularProgressIndicator()),
     );
 
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.transparent,
-            title: Text(l10n.apod),
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
+    Widget buildError(String? error) => SliverFillRemaining(
+      child: Center(child: Text("Error: $error")),
+    );
+
+    Widget buildContent(ApodViewModel vm) {
+      final apod = Hero(
+        tag: 'apodHero',
+        child: Image.network(
+          vm.apod!.imageUrl,
+          fit: BoxFit.cover,
+        ),
+      );
+
+      return SliverToBoxAdapter(
+        child: Column(
+          children: [
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Card(
                 elevation: 6.0,
@@ -60,7 +77,6 @@ class _ApodPageState extends State<ApodPage> {
                       Container(
                         width: double.infinity,
                         padding: const EdgeInsetsGeometry.all(16.0),
-                        //color: Colors.yellow,
                         decoration: const BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topCenter,
@@ -69,7 +85,7 @@ class _ApodPageState extends State<ApodPage> {
                           ),
                         ),
                         child: Text(
-                          "Collapse in Hebes Chasma on Mars",
+                          vm.apod!.title,
                           style: TextStyle(
                             color: AppColors.white,
                             fontSize: 18.0,
@@ -82,25 +98,7 @@ class _ApodPageState extends State<ApodPage> {
                 ),
               ),
             ),
-          ),
-          // SliverPadding(
-          //   padding: const EdgeInsets.all(16),
-          //   sliver: SliverGrid(
-          //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //       crossAxisCount: 2,
-          //       crossAxisSpacing: 10,
-          //       mainAxisSpacing: 10,
-          //     ),
-          //     delegate: SliverChildBuilderDelegate(
-          //       (context, index) => Card(
-          //         child: Center(child: Text('Item $index')),
-          //       ),
-          //       childCount: 10,
-          //     ),
-          //   ),
-          // ),
-          SliverToBoxAdapter(
-            child: Container(
+            Container(
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,20 +119,38 @@ class _ApodPageState extends State<ApodPage> {
                           color: AppColors.black10,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        child: Text(DateTime.now().toString()),
+                        child: Text(vm.apod!.date),
                       ),
                     ],
                   ),
                   SizedBox(height: 8.0),
                   Text(
-                    "What's happened in Hebes Chasma on Mars? Hebes Chasma is a depression just north of the enormous Valles Marineris canyon.  Since the depression is unconnected to other surface features, it is unclear where the internal material went. Inside Hebes Chasma is Hebes Mensa, a 5 kilometer high mesa that appears to have undergone an unusual partial collapse -- a collapse that might be providing clues. The featured image, taken by ESA's robotic Mars Express spacecraft currently orbiting Mars, shows great details of the chasm and the unusual horseshoe shaped indentation in the central mesa. Material from the mesa appears to have flowed onto the floor of the chasm, while a possible dark layer appears to have pooled like ink on a downslope landing.  One hypothesis holds that salty rock composes some lower layers in Hebes Chasma, with the salt dissolving in melted ice flows that drained through holes into an underground aquifer.",
+                    vm.apod!.explanation,
                     style: textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
                   ),
                 ],
               ),
             ),
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            title: Text(l10n.apod),
           ),
+          switch (vm.status) {
+            ApodStateStatus.initial => buildInitial(),
+            ApodStateStatus.loading => buildLoading(),
+            ApodStateStatus.error => buildError(vm.error),
+            ApodStateStatus.completed => buildContent(vm),
+          },
         ],
       ),
     );
