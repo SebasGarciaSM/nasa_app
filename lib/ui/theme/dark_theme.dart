@@ -29,4 +29,5 @@ final ThemeData darkTheme = ThemeData(
     backgroundColor: AppColors.starYellow,
     foregroundColor: Colors.black,
   ),
+  iconButtonTheme: IconButtonThemeData(),
 );

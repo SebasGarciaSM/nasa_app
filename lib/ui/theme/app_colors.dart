@@ -60,4 +60,18 @@ class AppColors {
 
   static const earthAssetsLight = Color(0xFFF1F8E9);
   static const earthAssetsDark = Color(0xFF33691E);
+
+  //Black and White
+  static const transparent = Color(0x00000000);
+  static const white = Color(0xFFFFFFFF);
+  static const black10 = Color(0x1A000000); // 10%
+  static const black20 = Color(0x33000000); // 20%
+  static const black30 = Color(0x4D000000); // 30%
+  static const black40 = Color(0x66000000); // 40%
+  static const black50 = Color(0x80000000); // 50%
+  static const black60 = Color(0x99000000); // 60%
+  static const black70 = Color(0xB3000000); // 70%
+  static const black80 = Color(0xCC000000); // 80%
+  static const black90 = Color(0xE6000000); // 90%
+  static const black = Color(0xFF000000);
 }

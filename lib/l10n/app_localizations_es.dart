@@ -37,4 +37,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get earthAssets => 'Recursos de la Tierra';
+
+  @override
+  String get overview => 'Descripción';
 }
