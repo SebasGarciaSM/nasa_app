@@ -1,4 +1,3 @@
-import 'package:nasa_app/data/models/neart_earth_object_response.dart';
 import 'package:nasa_app/domain/entities/asteroid_entity.dart';
 
 abstract class AsteroidsRepository {

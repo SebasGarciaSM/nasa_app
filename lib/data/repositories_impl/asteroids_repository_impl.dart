@@ -28,7 +28,6 @@ class AsteroidsRepositoryImpl implements AsteroidsRepository {
       var list = responseModel.asteroids
           .map((element) => element.toEntity())
           .toList();
-      print(list);
       return list;
     } else {
       throw Exception('Error fetching asteroids');

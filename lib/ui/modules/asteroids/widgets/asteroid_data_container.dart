@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:nasa_app/domain/entities/asteroid_entity.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
