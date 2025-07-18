@@ -10,5 +10,9 @@
   "imageAndVideoLibrary": "Image and Video Library",
   "exoplanetArchive": "Exoplanet Archive",
   "earthAssets": "Earth Assets",
-  "overview": "Overview"
+  "overview": "Overview",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "selectStartDate": "Select Start Date",
+  "selectEndDate": "Select End Date"
 }

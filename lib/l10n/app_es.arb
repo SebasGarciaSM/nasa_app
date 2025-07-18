@@ -10,5 +10,9 @@
   "imageAndVideoLibrary": "Biblioteca de imágenes y videos",
   "exoplanetArchive": "Archivo de exoplanetas",
   "earthAssets": "Recursos de la Tierra",
-  "overview": "Descripción"
+  "overview": "Descripción",
+  "startDate": "Fecha Inicial",
+  "endDate": "Fecha Final",
+  "selectStartDate": "Selecciona Fecha Inicial",
+  "selectEndDate": "Selecciona Fecha Final"
 }

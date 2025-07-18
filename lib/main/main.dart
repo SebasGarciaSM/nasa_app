@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/main/app_module.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
+import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.dart';
 import 'package:nasa_app/ui/theme/dark_theme.dart';
 import 'package:nasa_app/ui/theme/light_theme.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,9 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => Modular.get<ApodViewModel>()),
+        ChangeNotifierProvider(
+          create: (_) => Modular.get<AsteroidsViewModel>(),
+        ),
       ],
       child: ModularApp(
         module: AppModule(),

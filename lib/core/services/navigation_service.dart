@@ -4,4 +4,5 @@ import 'package:nasa_app/main/app_routes.dart';
 class NavigationService {
   void pop() => Modular.to.pop();
   void toApod() => Modular.to.pushNamed(AppRoutes.apod);
+  void toAsteroids() => Modular.to.pushNamed(AppRoutes.asteroids);
 }

@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
         title: l10n.neows,
         lightColor: AppColors.asteroidsLight,
         darkColor: AppColors.asteroidsDark,
+        onTap: nav.toAsteroids,
       ),
       HomeCardConfig(
         icon: Icons.public,

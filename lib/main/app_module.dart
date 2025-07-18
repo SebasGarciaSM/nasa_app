@@ -6,6 +6,8 @@ import 'package:nasa_app/domain/use_cases/fetch_apod_use_case.dart';
 import 'package:nasa_app/main/app_routes.dart';
 import 'package:nasa_app/ui/modules/apod/apod_page.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
+import 'package:nasa_app/ui/modules/asteroids/asteroids_page.dart';
+import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.dart';
 import 'package:nasa_app/ui/modules/home/home_page.dart';
 
 class AppModule extends Module {
@@ -16,6 +18,7 @@ class AppModule extends Module {
     i.addLazySingleton<ApodRepository>(ApodRepositoryImpl.new);
     i.addLazySingleton(() => FetchApodUseCase(i()));
     i.addLazySingleton(() => ApodViewModel(i()));
+    i.addLazySingleton(() => AsteroidsViewModel());
   }
 
   @override
@@ -23,5 +26,6 @@ class AppModule extends Module {
     super.routes(r);
     r.child(AppRoutes.home, child: (_) => HomePage());
     r.child(AppRoutes.apod, child: (_) => ApodPage());
+    r.child(AppRoutes.asteroids, child: (_) => AsteroidsPage());
   }
 }

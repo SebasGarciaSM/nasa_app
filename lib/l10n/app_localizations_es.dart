@@ -40,4 +40,16 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get overview => 'Descripción';
+
+  @override
+  String get startDate => 'Fecha Inicial';
+
+  @override
+  String get endDate => 'Fecha Final';
+
+  @override
+  String get selectStartDate => 'Selecciona Fecha Inicial';
+
+  @override
+  String get selectEndDate => 'Selecciona Fecha Final';
 }

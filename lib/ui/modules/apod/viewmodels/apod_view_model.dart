@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:nasa_app/domain/entities/apod_entity.dart';
 import 'package:nasa_app/domain/use_cases/fetch_apod_use_case.dart';
 
