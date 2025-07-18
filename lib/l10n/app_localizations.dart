@@ -184,6 +184,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Select End Date'**
   String get selectEndDate;
+
+  /// Number of asteroids found
+  ///
+  /// In en, this message translates to:
+  /// **'{asteroids} asteroids found'**
+  String asteroidsFound(int asteroids);
+
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
+  /// Shows an error message
+  ///
+  /// In en, this message translates to:
+  /// **'Error: {errorMessage}'**
+  String error(String errorMessage);
+
+  /// No description provided for @hazardous.
+  ///
+  /// In en, this message translates to:
+  /// **'Hazardous'**
+  String get hazardous;
+
+  /// Magnitude of the asteroid
+  ///
+  /// In en, this message translates to:
+  /// **'Magnitude: {magnitude}'**
+  String magnitude(double magnitude);
+
+  /// Approach Date of the asteroid
+  ///
+  /// In en, this message translates to:
+  /// **'Approach Date: {approachDate}'**
+  String approachDate(String approachDate);
+
+  /// Velocity of the asteroid in KpH
+  ///
+  /// In en, this message translates to:
+  /// **'Velocity (KpH): {velocityKph}'**
+  String velocityKph(String velocityKph);
+
+  /// Miss Distance of the asteroid in Km
+  ///
+  /// In en, this message translates to:
+  /// **'Miss Distance (Km): {missDistanceKm}'**
+  String missDistanceKm(String missDistanceKm);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -52,4 +52,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get selectEndDate => 'Select End Date';
+
+  @override
+  String asteroidsFound(int asteroids) {
+    return '$asteroids asteroids found';
+  }
+
+  @override
+  String get confirm => 'Confirm';
+
+  @override
+  String error(String errorMessage) {
+    return 'Error: $errorMessage';
+  }
+
+  @override
+  String get hazardous => 'Hazardous';
+
+  @override
+  String magnitude(double magnitude) {
+    return 'Magnitude: $magnitude';
+  }
+
+  @override
+  String approachDate(String approachDate) {
+    return 'Approach Date: $approachDate';
+  }
+
+  @override
+  String velocityKph(String velocityKph) {
+    return 'Velocity (KpH): $velocityKph';
+  }
+
+  @override
+  String missDistanceKm(String missDistanceKm) {
+    return 'Miss Distance (Km): $missDistanceKm';
+  }
 }

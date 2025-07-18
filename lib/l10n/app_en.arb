@@ -14,5 +14,67 @@
   "startDate": "Start Date",
   "endDate": "End Date",
   "selectStartDate": "Select Start Date",
-  "selectEndDate": "Select End Date"
+  "selectEndDate": "Select End Date",
+  "asteroidsFound": "{asteroids} asteroids found",
+  "@asteroidsFound": {
+    "description": "Number of asteroids found",
+    "placeholders": {
+      "asteroids": {
+        "type": "int",
+        "example": "0"
+      }
+    }
+  },
+  "confirm": "Confirm",
+  "error": "Error: {errorMessage}",
+  "@error": {
+    "description": "Shows an error message",
+    "placeholders": {
+      "errorMessage": {
+        "type": "String",
+        "example": "An error has occured"
+      }
+    }
+  },
+  "hazardous": "Hazardous",
+  "magnitude": "Magnitude: {magnitude}",
+  "@magnitude": {
+    "description": "Magnitude of the asteroid",
+    "placeholders": {
+      "magnitude": {
+        "type": "double",
+        "example": "100.0"
+      }
+    }
+  },
+  "approachDate": "Approach Date: {approachDate}",
+  "@approachDate": {
+    "description": "Approach Date of the asteroid",
+    "placeholders": {
+      "approachDate": {
+        "type": "String",
+        "example": "2000-01-01"
+      }
+    }
+  },
+  "velocityKph": "Velocity (KpH): {velocityKph}",
+  "@velocityKph": {
+    "description": "Velocity of the asteroid in KpH",
+    "placeholders": {
+      "velocityKph": {
+        "type": "String",
+        "example": "100.0"
+      }
+    }
+  },
+  "missDistanceKm": "Miss Distance (Km): {missDistanceKm}",
+  "@missDistanceKm": {
+    "description": "Miss Distance of the asteroid in Km",
+    "placeholders": {
+      "missDistanceKm": {
+        "type": "String",
+        "example": "100.0"
+      }
+    }
+  }
 }

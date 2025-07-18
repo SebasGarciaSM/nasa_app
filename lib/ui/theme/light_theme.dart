@@ -63,7 +63,7 @@ final ThemeData lightTheme = ThemeData(
       // Etiquetas o botones
       fontSize: 14,
       fontWeight: FontWeight.w500,
-      color: AppColors.accent,
+      color: AppColors.primaryDark,
     ),
   ),
   floatingActionButtonTheme: FloatingActionButtonThemeData(
