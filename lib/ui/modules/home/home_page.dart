@@ -87,14 +87,9 @@ class _HomePageState extends State<HomePage> {
           SliverAppBar.medium(
             pinned: false,
             floating: false,
-            backgroundColor: Theme.of(context).primaryColor,
+            //backgroundColor: Theme.of(context).primaryColor,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                l10n.appTitle,
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
+              title: Text(l10n.appTitle),
             ),
           ),
           SliverPadding(

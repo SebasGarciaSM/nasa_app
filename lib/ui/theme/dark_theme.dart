@@ -3,31 +3,62 @@ import 'app_colors.dart';
 
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
-  scaffoldBackgroundColor: AppColors.voidBlack,
+  scaffoldBackgroundColor: AppColors.black,
   primaryColor: AppColors.primaryDark,
   appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.primaryDark,
-    foregroundColor: Colors.white,
+    backgroundColor: AppColors.transparent,
+    foregroundColor: AppColors.white,
     elevation: 4,
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      color: AppColors.white,
+      fontWeight: FontWeight.w400,
+    ),
   ),
   colorScheme: ColorScheme.dark(
     primary: AppColors.primaryLight,
-    secondary: AppColors.accentLight,
-    background: AppColors.voidBlack,
-    surface: AppColors.spacePurple,
-    onPrimary: Colors.white,
-    onSecondary: Colors.white,
+    secondary: AppColors.accent,
+    surface: AppColors.primaryDark,
+    onPrimary: AppColors.white,
+    onSecondary: AppColors.secondary,
     onSurface: Colors.white,
-    onBackground: Colors.white,
   ),
   cardColor: AppColors.spacePurple,
   textTheme: const TextTheme(
-    bodyMedium: TextStyle(color: Colors.white70),
-    titleLarge: TextStyle(color: Colors.white),
+    displayLarge: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: AppColors.white,
+      letterSpacing: 1.2,
+    ),
+    headlineMedium: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w600,
+      color: AppColors.white,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+      color: AppColors.white,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      height: 1.5,
+      color: AppColors.white,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+      color: AppColors.white,
+    ),
+    labelLarge: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      color: AppColors.white,
+    ),
   ),
-  floatingActionButtonTheme: FloatingActionButtonThemeData(
-    backgroundColor: AppColors.starYellow,
-    foregroundColor: Colors.black,
+  expansionTileTheme: ExpansionTileThemeData(
+    backgroundColor: AppColors.primary,
   ),
-  iconButtonTheme: IconButtonThemeData(),
 );

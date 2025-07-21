@@ -16,7 +16,6 @@ class AppColors {
 
   static const Color starYellow = Color(0xFFFFD700);
   static const Color spacePurple = Color(0xFF2E003E);
-  static const Color voidBlack = Color(0xFF000000);
 
   static const Color blueLight = Color(0xFFD0E8FF);
   static const Color blueDark = Color(0xFF1E3A5F);
