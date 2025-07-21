@@ -5,4 +5,5 @@ class NavigationService {
   void pop() => Modular.to.pop();
   void toApod() => Modular.to.pushNamed(AppRoutes.apod);
   void toAsteroids() => Modular.to.pushNamed(AppRoutes.asteroids);
+  void toEpic() => Modular.to.pushNamed(AppRoutes.epic);
 }

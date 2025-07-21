@@ -232,6 +232,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Miss Distance (Km): {missDistanceKm}'**
   String missDistanceKm(String missDistanceKm);
+
+  /// Shows latitude of earth image
+  ///
+  /// In en, this message translates to:
+  /// **'Latitude: {latitude}'**
+  String latitude(double latitude);
+
+  /// Shows longitude of earth image
+  ///
+  /// In en, this message translates to:
+  /// **'Longitude: {longitude}'**
+  String longitude(double longitude);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -88,4 +88,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String missDistanceKm(String missDistanceKm) {
     return 'Miss Distance (Km): $missDistanceKm';
   }
+
+  @override
+  String latitude(double latitude) {
+    return 'Latitude: $latitude';
+  }
+
+  @override
+  String longitude(double longitude) {
+    return 'Longitude: $longitude';
+  }
 }

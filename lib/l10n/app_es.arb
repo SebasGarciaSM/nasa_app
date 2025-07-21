@@ -76,5 +76,25 @@
         "example": "100.0"
       }
     }
+  },
+  "latitude": "Latitud: {latitude}",
+  "@latitude": {
+    "description": "Muestra la latitud de la imagen de la tierra",
+    "placeholders": {
+      "latitude": {
+        "type": "double",
+        "example": "100.0"
+      }
+    }
+  },
+  "longitude": "Longitud: {longitude}",
+  "@longitude": {
+    "description": "Muestra la longitud de la imagen de la tierra",
+    "placeholders": {
+      "longitude": {
+        "type": "double",
+        "example": "100.0"
+      }
+    }
   }
 }

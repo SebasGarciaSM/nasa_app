@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
         title: l10n.epic,
         lightColor: AppColors.epicLight,
         darkColor: AppColors.epicDark,
+        onTap: nav.toEpic,
       ),
       HomeCardConfig(
         icon: Icons.wb_sunny,
