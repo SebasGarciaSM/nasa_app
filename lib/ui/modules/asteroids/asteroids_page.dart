@@ -6,6 +6,7 @@ import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.da
 import 'package:nasa_app/ui/modules/asteroids/widgets/asteroid_data_container.dart';
 import 'package:nasa_app/ui/modules/asteroids/widgets/date_picker_field.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class AsteroidsPage extends StatefulWidget {
   const AsteroidsPage({super.key});
@@ -35,7 +36,7 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
 
   Widget buildInitial() => const SizedBox();
 
-  Widget buildLoading() => const Center(child: CircularProgressIndicator());
+  Widget buildLoading() => const Center(child: LoadingLottie());
 
   Widget buildError(String error) => Center(child: Text(error));
 

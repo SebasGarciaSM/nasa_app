@@ -5,6 +5,7 @@ import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class ApodPage extends StatefulWidget {
   const ApodPage({super.key});
@@ -34,7 +35,7 @@ class _ApodPageState extends State<ApodPage> {
     Widget buildInitial() => const SliverToBoxAdapter(child: SizedBox());
 
     Widget buildLoading() => const SliverFillRemaining(
-      child: Center(child: CircularProgressIndicator()),
+      child: Center(child: LoadingLottie()),
     );
 
     Widget buildError(String? error) => SliverFillRemaining(

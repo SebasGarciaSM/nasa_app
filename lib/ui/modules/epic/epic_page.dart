@@ -6,6 +6,7 @@ import 'package:nasa_app/core/utils/epic_image_url_builder.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/modules/epic/viewmodels/epic_view_model.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class EpicPage extends StatefulWidget {
   const EpicPage({super.key});
@@ -32,18 +33,16 @@ class _EpicPageState extends State<EpicPage> {
     Widget buildInitial() => const SizedBox();
 
     Widget buildLoading() => const Center(
-      child: CircularProgressIndicator(),
+      child: LoadingLottie(),
     );
 
     Widget buildError() => Center(
       child: Text('Error'),
     );
 
-    Widget buildContent(
-      BuildContext context,
-    ) {
+    Widget buildContent() {
       return ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         itemCount: vm.epics.length,
         itemBuilder: (_, index) {
           final epic = vm.epics[index];
@@ -80,7 +79,7 @@ class _EpicPageState extends State<EpicPage> {
             child: InkWell(
               onTap: () {
                 FullscreenImageViewer.open(
-                  context: context,
+                  context: this.context,
                   child: epicImage,
                 );
               },
@@ -135,7 +134,7 @@ class _EpicPageState extends State<EpicPage> {
       body: switch (vm.status) {
         StateStatus.initial => buildInitial(),
         StateStatus.loading => buildLoading(),
-        StateStatus.completed => buildContent(context),
+        StateStatus.completed => buildContent(),
         StateStatus.error => buildError(),
       },
     );
