@@ -197,12 +197,6 @@ abstract class AppLocalizations {
   /// **'Confirm'**
   String get confirm;
 
-  /// Shows an error message
-  ///
-  /// In en, this message translates to:
-  /// **'Error: {errorMessage}'**
-  String error(String errorMessage);
-
   /// No description provided for @hazardous.
   ///
   /// In en, this message translates to:
@@ -244,6 +238,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Longitude: {longitude}'**
   String longitude(double longitude);
+
+  /// No description provided for @retry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get retry;
+
+  /// No description provided for @error.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get error;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -16,6 +16,8 @@ class ErrorLottie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
@@ -44,13 +46,13 @@ class ErrorLottie extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      errorMessage ?? 'Error',
+                      errorMessage ?? l10n.error,
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     const SizedBox(height: 12.0),
                     FilledButton(
                       onPressed: onTap,
-                      child: Text('Retry'),
+                      child: Text(l10n.retry),
                     ),
                   ],
                 ),

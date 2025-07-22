@@ -26,16 +26,6 @@
     }
   },
   "confirm": "Confirm",
-  "error": "Error: {errorMessage}",
-  "@error": {
-    "description": "Shows an error message",
-    "placeholders": {
-      "errorMessage": {
-        "type": "String",
-        "example": "An error has occured"
-      }
-    }
-  },
   "hazardous": "Hazardous",
   "magnitude": "Magnitude: {magnitude}",
   "@magnitude": {
@@ -96,5 +86,7 @@
         "example": "100.0"
       }
     }
-  }
+  },
+  "retry": "Retry",
+  "error": "Error"
 }

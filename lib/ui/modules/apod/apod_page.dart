@@ -29,7 +29,6 @@ class _ApodPageState extends State<ApodPage> {
   @override
   Widget build(BuildContext context) {
     final vm = context.watch<ApodViewModel>();
-
     final l10n = AppLocalizations.of(context)!;
     final textTheme = Theme.of(context).textTheme;
 

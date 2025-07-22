@@ -62,11 +62,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get confirm => 'Confirmar';
 
   @override
-  String error(String errorMessage) {
-    return 'Error: $errorMessage';
-  }
-
-  @override
   String get hazardous => 'Peligroso';
 
   @override
@@ -98,4 +93,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String longitude(double longitude) {
     return 'Longitud: $longitude';
   }
+
+  @override
+  String get retry => 'Reintentar';
+
+  @override
+  String get error => 'Error';
 }
