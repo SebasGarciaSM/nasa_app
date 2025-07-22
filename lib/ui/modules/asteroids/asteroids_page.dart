@@ -50,7 +50,7 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
       onTap: onRetry,
     );
 
-    Widget buildContent(AsteroidsViewModel vm) {
+    Widget buildContent() {
       return Column(
         children: [
           Container(
@@ -130,7 +130,7 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
                     SizedBox(height: 12.0),
                     FilledButton(
                       onPressed: vm.loadAsteroids,
-                      child: Text("Submit"),
+                      child: Text(l10n.confirm),
                     ),
                   ],
                 ),
@@ -141,7 +141,7 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
             child: switch (vm.status) {
               StateStatus.initial => buildInitial(),
               StateStatus.loading => buildLoading(),
-              StateStatus.completed => buildContent(vm),
+              StateStatus.completed => buildContent(),
               StateStatus.error => buildError(vm.error, vm.loadAsteroids),
             },
           ),

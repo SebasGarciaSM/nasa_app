@@ -46,7 +46,7 @@ class _ApodPageState extends State<ApodPage> {
           ),
         );
 
-    Widget buildContent(ApodViewModel vm) {
+    Widget buildContent() {
       final apod = Hero(
         tag: 'apodHero',
         child: Image.network(
@@ -155,7 +155,7 @@ class _ApodPageState extends State<ApodPage> {
             ApodStateStatus.initial => buildInitial(),
             ApodStateStatus.loading => buildLoading(),
             ApodStateStatus.error => buildError(vm.error, vm.loadApod),
-            ApodStateStatus.completed => buildContent(vm),
+            ApodStateStatus.completed => buildContent(),
           },
         ],
       ),
