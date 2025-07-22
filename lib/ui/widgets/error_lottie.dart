@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
-import 'package:nasa_app/ui/theme/app_colors.dart';
 import 'package:nasa_app/ui/theme/lottie_assets.dart';
 
 class ErrorLottie extends StatelessWidget {
