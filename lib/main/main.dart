@@ -6,6 +6,7 @@ import 'package:nasa_app/main/app_module.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
 import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.dart';
 import 'package:nasa_app/ui/modules/epic/viewmodels/epic_view_model.dart';
+import 'package:nasa_app/ui/modules/mars/viewmodels/mars_view_model.dart';
 import 'package:nasa_app/ui/theme/dark_theme.dart';
 import 'package:nasa_app/ui/theme/light_theme.dart';
 import 'package:provider/provider.dart';
@@ -16,12 +17,17 @@ Future<void> main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => Modular.get<ApodViewModel>()),
+        ChangeNotifierProvider(
+          create: (_) => Modular.get<ApodViewModel>(),
+        ),
         ChangeNotifierProvider(
           create: (_) => Modular.get<AsteroidsViewModel>(),
         ),
         ChangeNotifierProvider(
           create: (_) => Modular.get<EpicViewModel>(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => Modular.get<MarsViewModel>(),
         ),
       ],
       child: ModularApp(

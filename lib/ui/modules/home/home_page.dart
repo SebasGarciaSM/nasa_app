@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
         title: l10n.marsRoversPhotos,
         lightColor: AppColors.marsLight,
         darkColor: AppColors.marsDark,
+        onTap: nav.toMars,
       ),
       HomeCardConfig(
         icon: Icons.blur_on,

@@ -88,5 +88,7 @@
     }
   },
   "retry": "Retry",
-  "error": "Error"
+  "error": "Error",
+  "selectDate": "Select Date",
+  "noResults": "No Results"
 }

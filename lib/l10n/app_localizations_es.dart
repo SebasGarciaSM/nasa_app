@@ -99,4 +99,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get error => 'Error';
+
+  @override
+  String get selectDate => 'Selecciona Fecha';
+
+  @override
+  String get noResults => 'Sin Resultados';
 }

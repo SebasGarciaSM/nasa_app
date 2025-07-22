@@ -3,12 +3,15 @@ import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/data/repositories_impl/apod_repository_impl.dart';
 import 'package:nasa_app/data/repositories_impl/asteroids_repository_impl.dart';
 import 'package:nasa_app/data/repositories_impl/epic_repository_impl.dart';
+import 'package:nasa_app/data/repositories_impl/mars_repository_impl.dart';
 import 'package:nasa_app/domain/repositories/apod_repository.dart';
 import 'package:nasa_app/domain/repositories/asteroids_repository.dart';
 import 'package:nasa_app/domain/repositories/epic_repository.dart';
+import 'package:nasa_app/domain/repositories/mars_repository.dart';
 import 'package:nasa_app/domain/use_cases/fetch_apod_use_case.dart';
 import 'package:nasa_app/domain/use_cases/fetch_asteroids_use_case.dart';
 import 'package:nasa_app/domain/use_cases/fetch_epic_use_case.dart';
+import 'package:nasa_app/domain/use_cases/fetch_mars_photos_use_case.dart';
 import 'package:nasa_app/main/app_routes.dart';
 import 'package:nasa_app/ui/modules/apod/apod_page.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
@@ -17,6 +20,8 @@ import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.da
 import 'package:nasa_app/ui/modules/epic/epic_page.dart';
 import 'package:nasa_app/ui/modules/epic/viewmodels/epic_view_model.dart';
 import 'package:nasa_app/ui/modules/home/home_page.dart';
+import 'package:nasa_app/ui/modules/mars/mars_page.dart';
+import 'package:nasa_app/ui/modules/mars/viewmodels/mars_view_model.dart';
 
 class AppModule extends Module {
   @override
@@ -38,6 +43,11 @@ class AppModule extends Module {
     i.addLazySingleton<EpicRepository>(EpicRepositoryImpl.new);
     i.addLazySingleton(() => FetchEpicUseCase(i()));
     i.addLazySingleton(() => EpicViewModel(i()));
+
+    //Mars Rover Photos
+    i.addLazySingleton<MarsRepository>(MarsRepositoryImpl.new);
+    i.addLazySingleton(() => FetchMarsPhotosUseCase(i()));
+    i.addLazySingleton(() => MarsViewModel(i()));
   }
 
   @override
@@ -47,5 +57,6 @@ class AppModule extends Module {
     r.child(AppRoutes.apod, child: (_) => ApodPage());
     r.child(AppRoutes.asteroids, child: (_) => AsteroidsPage());
     r.child(AppRoutes.epic, child: (_) => EpicPage());
+    r.child(AppRoutes.mars, child: (_) => MarsPage());
   }
 }
