@@ -15,6 +15,7 @@ class AsteroidDataContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final l10n = AppLocalizations.of(context)!;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
       decoration: BoxDecoration(
@@ -54,7 +55,7 @@ class AsteroidDataContainer extends StatelessWidget {
                             vertical: 4.0,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.redDark,
+                            color: AppColors.accent,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Row(

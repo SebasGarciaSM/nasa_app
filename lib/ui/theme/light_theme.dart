@@ -61,5 +61,6 @@ final ThemeData lightTheme = ThemeData(
   ),
   expansionTileTheme: ExpansionTileThemeData(
     backgroundColor: AppColors.white,
+    iconColor: AppColors.primaryDark,
   ),
 );
