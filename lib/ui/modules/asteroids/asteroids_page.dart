@@ -6,6 +6,7 @@ import 'package:nasa_app/ui/modules/asteroids/viewmodels/asteroids_view_model.da
 import 'package:nasa_app/ui/modules/asteroids/widgets/asteroid_data_container.dart';
 import 'package:nasa_app/ui/modules/asteroids/widgets/date_picker_field.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/error_lottie.dart';
 import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class AsteroidsPage extends StatefulWidget {
@@ -34,51 +35,50 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
     }
   }
 
-  Widget buildInitial() => const SizedBox();
-
-  Widget buildLoading() => const Center(child: LoadingLottie());
-
-  Widget buildError(String error) => Center(child: Text(error));
-
-  Widget buildContent(
-    AsteroidsViewModel vm,
-    TextTheme textTheme,
-    AppLocalizations l10n,
-  ) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.only(bottom: 8.0),
-          child: Text(
-            l10n.asteroidsFound(vm.asteroids!.length),
-            style: textTheme.headlineSmall,
-          ),
-        ),
-        Divider(height: 1.0),
-        Expanded(
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24.0,
-              vertical: 16.0,
-            ),
-            shrinkWrap: true,
-            itemCount: vm.asteroids!.length,
-            separatorBuilder: (context, index) => SizedBox(height: 12.0),
-            itemBuilder: (context, index) {
-              final asteroid = vm.asteroids![index];
-              return AsteroidDataContainer(asteroid: asteroid);
-            },
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final vm = context.watch<AsteroidsViewModel>();
     final textTheme = Theme.of(context).textTheme;
+
+    Widget buildInitial() => const SizedBox();
+
+    Widget buildLoading() => const Center(child: LoadingLottie());
+
+    Widget buildError(String? error, VoidCallback onRetry) => ErrorLottie(
+      errorMessage: error,
+      onTap: onRetry,
+    );
+
+    Widget buildContent(AsteroidsViewModel vm) {
+      return Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              l10n.asteroidsFound(vm.asteroids!.length),
+              style: textTheme.headlineSmall,
+            ),
+          ),
+          Divider(height: 1.0),
+          Expanded(
+            child: ListView.separated(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24.0,
+                vertical: 16.0,
+              ),
+              shrinkWrap: true,
+              itemCount: vm.asteroids!.length,
+              separatorBuilder: (context, index) => SizedBox(height: 12.0),
+              itemBuilder: (context, index) {
+                final asteroid = vm.asteroids![index];
+                return AsteroidDataContainer(asteroid: asteroid);
+              },
+            ),
+          ),
+        ],
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -141,8 +141,8 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
             child: switch (vm.status) {
               StateStatus.initial => buildInitial(),
               StateStatus.loading => buildLoading(),
-              StateStatus.completed => buildContent(vm, textTheme, l10n),
-              StateStatus.error => buildError(l10n.error(vm.error!)),
+              StateStatus.completed => buildContent(vm),
+              StateStatus.error => buildError(vm.error, vm.loadAsteroids),
             },
           ),
         ],

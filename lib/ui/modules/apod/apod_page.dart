@@ -5,6 +5,7 @@ import 'package:nasa_app/core/services/navigation_service.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/modules/apod/viewmodels/apod_view_model.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/error_lottie.dart';
 import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class ApodPage extends StatefulWidget {
@@ -38,9 +39,13 @@ class _ApodPageState extends State<ApodPage> {
       child: Center(child: LoadingLottie()),
     );
 
-    Widget buildError(String? error) => SliverFillRemaining(
-      child: Center(child: Text("Error: $error")),
-    );
+    Widget buildError(String? error, VoidCallback onRetry) =>
+        SliverFillRemaining(
+          child: ErrorLottie(
+            errorMessage: error,
+            onTap: onRetry,
+          ),
+        );
 
     Widget buildContent(ApodViewModel vm) {
       final apod = Hero(
@@ -145,11 +150,12 @@ class _ApodPageState extends State<ApodPage> {
           SliverAppBar(
             backgroundColor: Colors.transparent,
             title: Text(l10n.apod),
+            forceMaterialTransparency: true,
           ),
           switch (vm.status) {
             ApodStateStatus.initial => buildInitial(),
             ApodStateStatus.loading => buildLoading(),
-            ApodStateStatus.error => buildError(vm.error),
+            ApodStateStatus.error => buildError(vm.error, vm.loadApod),
             ApodStateStatus.completed => buildContent(vm),
           },
         ],

@@ -6,6 +6,7 @@ import 'package:nasa_app/core/utils/epic_image_url_builder.dart';
 import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/modules/epic/viewmodels/epic_view_model.dart';
 import 'package:nasa_app/ui/theme/app_colors.dart';
+import 'package:nasa_app/ui/widgets/error_lottie.dart';
 import 'package:nasa_app/ui/widgets/loading_lottie.dart';
 
 class EpicPage extends StatefulWidget {
@@ -36,8 +37,9 @@ class _EpicPageState extends State<EpicPage> {
       child: LoadingLottie(),
     );
 
-    Widget buildError() => Center(
-      child: Text('Error'),
+    Widget buildError(String? error, VoidCallback onRetry) => ErrorLottie(
+      errorMessage: error,
+      onTap: onRetry,
     );
 
     Widget buildContent() {
@@ -135,7 +137,7 @@ class _EpicPageState extends State<EpicPage> {
         StateStatus.initial => buildInitial(),
         StateStatus.loading => buildLoading(),
         StateStatus.completed => buildContent(),
-        StateStatus.error => buildError(),
+        StateStatus.error => buildError(vm.error, vm.loadEpics),
       },
     );
   }
