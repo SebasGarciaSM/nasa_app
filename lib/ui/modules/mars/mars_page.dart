@@ -8,6 +8,7 @@ import 'package:nasa_app/ui/modules/mars/viewmodels/mars_view_model.dart';
 import 'package:nasa_app/ui/modules/mars/widgets/mars_photo_card.dart';
 import 'package:nasa_app/ui/widgets/error_lottie.dart';
 import 'package:nasa_app/ui/widgets/loading_lottie.dart';
+import 'package:nasa_app/ui/widgets/no_data_found_lottie.dart';
 
 class MarsPage extends StatefulWidget {
   const MarsPage({super.key});
@@ -36,6 +37,7 @@ class _MarsPageState extends State<MarsPage> {
   Widget build(BuildContext context) {
     final vm = context.watch<MarsViewModel>();
     final l10n = AppLocalizations.of(context)!;
+    final textTheme = Theme.of(context).textTheme;
 
     Widget buildInitial() => SizedBox();
 
@@ -48,9 +50,7 @@ class _MarsPageState extends State<MarsPage> {
 
     Widget buildContent() {
       if (vm.marsPhotos.isEmpty) {
-        return Center(
-          child: Text(l10n.noResults),
-        );
+        return NoDataFoundLottie();
       } else {
         return ListView.separated(
           padding: const EdgeInsets.symmetric(
