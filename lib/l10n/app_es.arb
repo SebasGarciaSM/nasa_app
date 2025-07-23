@@ -90,5 +90,26 @@
   "retry": "Reintentar",
   "error": "Error",
   "selectDate": "Selecciona Fecha",
-  "noResults": "Sin Resultados"
+  "noResultsFound": "No se encontraron resultados",
+  "pleaseTryAgainWithAnotherDate": "Por favor, inténtelo de nuevo con otra fecha",
+  "cameraName": "Cámara: {cameraName}",
+  "@cameraName": {
+    "description": "Describe el nombre de la cámara con la que se tomó la foto",
+    "placeholders": {
+      "cameraName": {
+        "type": "String",
+        "example": "CHEMCAM_RMI"
+      }
+    }
+  },
+  "earthDate": "Fecha: {earthDate}",
+  "@earthDate": {
+    "description": "Describe la fecha en que se tomó la foto",
+    "placeholders": {
+      "earthDate": {
+        "type": "String",
+        "example": "2025-07-01"
+      }
+    }
+  }
 }

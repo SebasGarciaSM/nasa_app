@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_app/domain/entities/mars_photo_entity.dart';
+import 'package:nasa_app/l10n/app_localizations.dart';
 
 class MarsPhotoCard extends StatelessWidget {
   const MarsPhotoCard({
@@ -16,6 +17,7 @@ class MarsPhotoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return Card(
       elevation: 6.0,
@@ -35,11 +37,11 @@ class MarsPhotoCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Camera: ${marsPhoto.cameraName}',
+                    l10n.cameraName(marsPhoto.cameraName),
                     style: textTheme.bodyMedium,
                   ),
                   Text(
-                    'Date: ${marsPhoto.earthDate}',
+                    l10n.earthDate(marsPhoto.earthDate),
                     style: textTheme.bodySmall,
                   ),
                 ],

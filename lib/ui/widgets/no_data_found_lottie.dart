@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nasa_app/l10n/app_localizations.dart';
 import 'package:nasa_app/ui/theme/lottie_assets.dart';
 
 class NoDataFoundLottie extends StatelessWidget {
@@ -8,6 +9,7 @@ class NoDataFoundLottie extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final l10n = AppLocalizations.of(context)!;
 
     return SizedBox(
       width: double.infinity,
@@ -22,13 +24,13 @@ class NoDataFoundLottie extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Text(
-            'No Results Found',
+            l10n.noResultsFound,
             style: textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
-            'Please try again with another date.',
+            l10n.pleaseTryAgainWithAnotherDate,
             style: textTheme.titleSmall,
           ),
         ],

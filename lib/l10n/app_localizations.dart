@@ -257,11 +257,29 @@ abstract class AppLocalizations {
   /// **'Select Date'**
   String get selectDate;
 
-  /// No description provided for @noResults.
+  /// No description provided for @noResultsFound.
   ///
   /// In en, this message translates to:
-  /// **'No Results'**
-  String get noResults;
+  /// **'No results found'**
+  String get noResultsFound;
+
+  /// No description provided for @pleaseTryAgainWithAnotherDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Please try again with another date'**
+  String get pleaseTryAgainWithAnotherDate;
+
+  /// Describes the name of the camera with which the photo was taken
+  ///
+  /// In en, this message translates to:
+  /// **'Camera: {cameraName}'**
+  String cameraName(String cameraName);
+
+  /// Describes the date the photo was taken
+  ///
+  /// In en, this message translates to:
+  /// **'Date: {earthDate}'**
+  String earthDate(String earthDate);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

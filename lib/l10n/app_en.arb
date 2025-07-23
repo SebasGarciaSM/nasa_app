@@ -90,5 +90,26 @@
   "retry": "Retry",
   "error": "Error",
   "selectDate": "Select Date",
-  "noResults": "No Results"
+  "noResultsFound": "No results found",
+  "pleaseTryAgainWithAnotherDate": "Please try again with another date",
+  "cameraName": "Camera: {cameraName}",
+  "@cameraName": {
+    "description": "Describes the name of the camera with which the photo was taken",
+    "placeholders": {
+      "cameraName": {
+        "type": "String",
+        "example": "CHEMCAM_RMI"
+      }
+    }
+  },
+  "earthDate": "Date: {earthDate}",
+  "@earthDate": {
+    "description": "Describes the date the photo was taken",
+    "placeholders": {
+      "earthDate": {
+        "type": "String",
+        "example": "2025-07-01"
+      }
+    }
+  }
 }

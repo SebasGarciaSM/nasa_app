@@ -104,5 +104,18 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectDate => 'Selecciona Fecha';
 
   @override
-  String get noResults => 'Sin Resultados';
+  String get noResultsFound => 'No se encontraron resultados';
+
+  @override
+  String get pleaseTryAgainWithAnotherDate => 'Por favor, inténtelo de nuevo con otra fecha';
+
+  @override
+  String cameraName(String cameraName) {
+    return 'Cámara: $cameraName';
+  }
+
+  @override
+  String earthDate(String earthDate) {
+    return 'Fecha: $earthDate';
+  }
 }

@@ -37,7 +37,6 @@ class _MarsPageState extends State<MarsPage> {
   Widget build(BuildContext context) {
     final vm = context.watch<MarsViewModel>();
     final l10n = AppLocalizations.of(context)!;
-    final textTheme = Theme.of(context).textTheme;
 
     Widget buildInitial() => SizedBox();
 
