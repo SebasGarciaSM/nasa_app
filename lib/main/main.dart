@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      title: 'Flutter Demo',
+      title: 'Nasa App',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system,
