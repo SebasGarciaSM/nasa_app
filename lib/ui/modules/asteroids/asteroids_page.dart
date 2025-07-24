@@ -22,12 +22,15 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
     String helpText,
     void Function(DateTime) onDateSelected,
   ) async {
+    final DateTime today = DateTime.now();
+    final DateTime sevenDaysAgo = today.subtract(const Duration(days: 7));
+
     final picked = await showDatePicker(
       context: context,
       helpText: helpText,
       initialDate: DateTime.now(),
-      firstDate: DateTime(1995),
-      lastDate: DateTime.now(),
+      firstDate: sevenDaysAgo,
+      lastDate: today,
     );
 
     if (picked != null) {
@@ -45,9 +48,9 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
 
     Widget buildLoading() => const Center(child: LoadingLottie());
 
-    Widget buildError(String? error, VoidCallback onRetry) => ErrorLottie(
-      errorMessage: error,
-      onTap: onRetry,
+    Widget buildError() => ErrorLottie(
+      errorMessage: vm.error,
+      onTap: vm.loadAsteroids,
     );
 
     Widget buildContent() {
@@ -142,7 +145,7 @@ class _AsteroidsPageState extends State<AsteroidsPage> {
               StateStatus.initial => buildInitial(),
               StateStatus.loading => buildLoading(),
               StateStatus.completed => buildContent(),
-              StateStatus.error => buildError(vm.error, vm.loadAsteroids),
+              StateStatus.error => buildError(),
             },
           ),
         ],
